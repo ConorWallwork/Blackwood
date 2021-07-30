@@ -1,0 +1,5 @@
+   1   63 OP   00:38:58    2    2  00:47:36    6    2  00:10:23    1    2  00:31:15    2    1  00:33:12    1    1  02:41:24    1   // HAS HORSE, NOT VETTED
+  NE   25 OP   00:48:27   10   10  00:59:10   44   19  00:22:06  131   38  -- NE --   NE   NE  01:10:05  125   NE  03:19:48   46	  // NO HORSE
+   U   46 OP   00:49:31    U    U  00:51:35    U    U  00:13:30    U    U  00:28:46    U    U  00:51:39    U    U  03:15:01 U     // HAS HORSE, VETTED 
+   U  153 OP   00:53:35    U    U  ** ** **    U    U  00:19:05    U    U  -- NE --   NE   NE  00:43:37    U    U  01:56:16 U     // NO, HORSE, PADDLER DNF
+   U  144 VE   01:04:44    U    U  01:00:42    U    U  ** ** **    U    U  ** ** **    U    U  ** ** **    U    U  02:05:26 U    //  ONLY RUNNER AND PADDLER COMPETED
