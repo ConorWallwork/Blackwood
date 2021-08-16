@@ -24,8 +24,8 @@
 #define P_SLOWEST	7800
 
 /* ------------- HORSE DEFAULTS -------------- */
-#define H_FASTEST	1200	
-#define H_SLOWEST	5400	
+#define H_FASTEST	1200
+#define H_SLOWEST	5400
 #define H_INTERVAL	30
 
 /* --------- FILES ---------------- */
@@ -33,42 +33,42 @@
 #define RESULTS_FILE		"_times"
 #define TEAMS_FILE		"_teams"
 #define OLDEST_TEAMS		2011
-#define NEWEST_TEAMS		2016
+#define NEWEST_TEAMS		2017
 #define OLDEST_TIMES		2007
 
 
 int main(int argc, char* argv[])
 {
-	if( argc != 3)
-	{
-		printf("Enter a file name\n");
-		exit(EXIT_FAILURE);
-	}
-	char* timesfile = argv[1];
-	char* teamsfile = argv[2];
+	// if( argc != 3)
+	// {
+	// 	printf("Enter a file name\n");
+	// 	exit(EXIT_FAILURE);
+	// }
+	// char* timesfile = argv[1];
+	// char* teamsfile = argv[2];
 
-	years = malloc(sizeof(YEAR));	
-	//GENERATE TEAMS FROM NAMED RESULTS/TEAMS FILE
-	years[nyears] = ngetTeams( timesfile, teamsfile );
-	nyears++;
-	
+	// years = malloc(sizeof(YEAR));
+	// //GENERATE TEAMS FROM NAMED RESULTS/TEAMS FILE
+	// years[nyears] = ngetTeams( timesfile, teamsfile );
+	// nyears++;
+
 	//GENERATE TEAMS FROM BUILT-IN RESULTS/TEAMS FILES
 	for( int i = OLDEST_TEAMS; i <= NEWEST_TEAMS; i++)
 	{
 		years = realloc(years, sizeof(YEAR)*(nyears + 1) );
-		
+
 		char thistimesfile[PATH_MAX];
 		char thisteamsfile[PATH_MAX];
 		sprintf(thistimesfile, "%i%s", i, RESULTS_FILE);
 		sprintf(thisteamsfile, "%i%s", i, TEAMS_FILE);
 //printf("%s	%s\n", thisteamsfile, thistimesfile);
 		years[nyears] = ngetTeams(thistimesfile, thisteamsfile);
-		
-		//print_year(years[nyears]);	
-		
+
+		//print_year(years[nyears]);
+
 		nyears++;
 	}
-	
+
 	//GENERATE TEAMS FROM REST OF THE RESULTS FILES
 	for( int i = OLDEST_TIMES; i < OLDEST_TEAMS; i++)
 	{
@@ -76,17 +76,17 @@ int main(int argc, char* argv[])
 		sprintf(thistimesfile, "%s/%i%s", RESULTS_DIRECTORY, i, RESULTS_FILE);
 		getTeams(thistimesfile);
 	}
-			
+
 	/*for( int i = 0; i < nteams; i++)
 	{
 		print_team( teams[i] );
 	}*/
-	
+
 	HISTOGRAM run = createHistogram( RUN, R_SLOWEST, R_FASTEST, R_INTERVAL);
-	print_graph(&run); 
-	
+	print_graph(&run);
+
 	HISTOGRAM paddle = createHistogram( PADDLE, P_SLOWEST, P_FASTEST, P_INTERVAL);
-	print_graph(&paddle); 
+	print_graph(&paddle);
 
 	HISTOGRAM swim = createHistogram( SWIM, S_SLOWEST, S_FASTEST, S_INTERVAL);
 	print_graph(&swim);
@@ -96,7 +96,7 @@ int main(int argc, char* argv[])
 
 	HISTOGRAM cycle = createHistogram( CYCLE, C_SLOWEST, C_FASTEST, C_INTERVAL );
 	print_graph(&cycle);
-	
-	
+
+
 	return EXIT_SUCCESS;
 }
