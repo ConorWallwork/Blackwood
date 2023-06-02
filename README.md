@@ -2,7 +2,7 @@
 A visualisation of results for the blackwood marathon.
 
 # Using this Program
-To run this program, clone the directory and run `make` on the command line.
+To run this program, clone the directory and run `make` in bash.
 This creates the group of object files, and the executable `blackwood`.
 Then run `./blackwood`.
 
